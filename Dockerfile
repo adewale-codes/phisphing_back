@@ -14,6 +14,4 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 
 COPY . /app
 
-ENV PORT=8000
-
-CMD ["sh", "-c", "uvicorn app:app --host 0.0.0.0 --port ${PORT}"]
+CMD ["sh", "-c", "python download_model.py && uvicorn app:app --host 0.0.0.0 --port ${PORT}"]
